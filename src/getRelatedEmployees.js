@@ -36,7 +36,7 @@ A função getRelatedEmployees, caso o ID passado for da pessoa gerente, deve re
 A função getRelatedEmployees, caso o ID passado não for da pessoa gerente, deve disparar um erro com a mensagem: 'O id inserido não é de uma pessoa colaboradora gerente!'. */
 
 function isManager(id) {
-  return employees.some((element) => element.managers.includes(id));
+  return employees.some((elementId) => elementId.managers.includes(id));
 }
 console.log(isManager('0e7b460e-acf4-4e17-bcb3-ee472265db83'));
 
