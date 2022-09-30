@@ -26,26 +26,33 @@ A função countAnimals, caso receba como parâmetro um objeto com a chave speci
 
 A função countAnimals, caso receba como parâmetro um objeto com as chaves specie e sex, deve retornar a quantidade de animais daquela espécie, no sexo selecionado. */
 
-function countAnimals(animal = { species: undefined, sex: undefined }) {
-  const { specie, sex } = animal;
-  if (!specie) {
-    return species.reduce((acc, { name, residents }) => ({
-      ...acc,
-      [name]: residents.length,
-    }), {});
-  }
-  let animals = species.find(({ name }) => name === specie).residents;
+const returnAllSpeciesAndAmount = () => species.reduce((acc, animals) => {
+  acc[animals.name] = animals.residents.length;
+  return acc;
+}, {});
 
-  if (sex) {
-    animals = animals.filter(({ sex: sexFilter }) => sexFilter === sex);
-  }
+const returnKeysAndValue = (animal) => species.find((spec) =>
+  (spec.name === animal.specie)).residents.length;
 
-  return animals.length;
+const return2KeysAnd2Values = (animal) => {
+  const reside = species.find((spec) => (spec.name === animal.specie)).residents;
+  const sx = reside.filter(({ sex }) => sex === animal.sex);
+  return sx.length;
+};
+
+function countAnimals(animal) {
+  if (!animal) {
+    return returnAllSpeciesAndAmount();
+  }
+  if (Object.keys(animal).length === 1) {
+    return returnKeysAndValue(animal);
+  }
+  if (Object.keys(animal).length === 2) {
+    return return2KeysAnd2Values(animal);
+  }
 }
-console.log(countAnimals('lions'));
-console.log('===========================================================================');
-console.log(countAnimals({ species: 'lions', sex: 'female' }));
-console.log('===========================================================================');
-console.log(countAnimals());
+/* console.log(countAnimals()); */
+/* console.log(countAnimals({ specie: 'penguins' })); */
+console.log(countAnimals({ specie: 'bears', sex: 'female' }));
 
 module.exports = countAnimals;
