@@ -34,6 +34,6 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants()).toBeUndefined();
   });
   test('receive a parameter that is not a string and return a phrase of error: "Parâmetro inválido, é necessário uma string"', () => {
-    expect(handlerElephants(23)).toBeUndefined('Parâmetro inválido, é necessário uma string');
+    expect(handlerElephants(23)).toEqual('Parâmetro inválido, é necessário uma string');
   });
 });
