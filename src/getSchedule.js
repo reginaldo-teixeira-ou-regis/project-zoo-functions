@@ -35,41 +35,73 @@ A função, caso receba parâmetros que não sejam nem um animal e nem um dia, r
 
 A função, caso receba um único dia por parâmetro, deverá retornar os horários para aquele dia e quais animais estarão disponíveis. */
 
-const visitingHours = {
-  Sunday: {
+const sundayWeek = () => {
+  const weekSunday = {
     officeHour: `Open from ${hours.Sunday.open}am until ${hours.Sunday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Sunday'))
       .map((specie) => specie.name),
-  },
-  Monday: {
-    officeHour: 'CLOSED',
-    exhibition: 'The zoo will be closed!',
-  },
-  Tuesday: {
+  };
+  return weekSunday;
+};
+
+const mondayWeek = () => {
+  const weekSunday = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' };
+  return weekSunday;
+};
+
+const tuesdayWeek = () => {
+  const weekTuesday = {
     officeHour: `Open from ${hours.Tuesday.open}am until ${hours.Tuesday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Tuesday'))
       .map((specie) => specie.name),
-  },
-  Wednesday: {
+  };
+  return weekTuesday;
+};
+
+const wednesdayWeek = () => {
+  const weekWednesday = {
     officeHour: `Open from ${hours.Wednesday.open}am until ${hours.Wednesday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Wednesday'))
       .map((specie) => specie.name),
-  },
-  Thursday: {
+  };
+  return weekWednesday;
+};
+
+const thursdayWeek = () => {
+  const weekThursday = {
     officeHour: `Open from ${hours.Thursday.open}am until ${hours.Thursday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Thursday'))
       .map((specie) => specie.name),
-  },
-  Friday: {
+  };
+  return weekThursday;
+};
+
+const fridayWeek = () => {
+  const weekFriday = {
     officeHour: `Open from ${hours.Friday.open}am until ${hours.Friday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Friday'))
       .map((specie) => specie.name),
-  },
-  Saturday: {
+  };
+  return weekFriday;
+};
+
+const saturdayWeek = () => {
+  const weekSaturday = {
     officeHour: `Open from ${hours.Saturday.open}am until ${hours.Saturday.close}pm`,
     exhibition: species.filter((specie) => specie.availability.includes('Saturday'))
       .map((specie) => specie.name),
-  },
+  };
+  return weekSaturday;
+};
+
+const visitingHours = {
+  Sunday: sundayWeek(),
+  Monday: mondayWeek(),
+  Tuesday: tuesdayWeek(),
+  Wednesday: wednesdayWeek(),
+  Thursday: thursdayWeek(),
+  Friday: fridayWeek(),
+  Saturday: saturdayWeek(),
 };
 
 const animalName = (name) => species.find((spec) => spec.name === name).availability;
@@ -99,12 +131,12 @@ function getSchedule(scheduleTarget) {
   }
   return visitingHours;
 }
-/* console.log(getSchedule('lions'));
+console.log(getSchedule('lions'));
 console.log(' ');
 console.log(getSchedule('Wednesday'));
 console.log(' ');
 console.log(getSchedule('Monday'));
 console.log(' ');
-console.log(getSchedule()); */
+console.log(getSchedule());
 
 module.exports = getSchedule;
