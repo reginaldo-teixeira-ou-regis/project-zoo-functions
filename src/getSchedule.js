@@ -131,12 +131,12 @@ function getSchedule(scheduleTarget) {
   }
   return visitingHours;
 }
-console.log(getSchedule('lions'));
+/* console.log(getSchedule('lions'));
 console.log(' ');
 console.log(getSchedule('Wednesday'));
 console.log(' ');
 console.log(getSchedule('Monday'));
 console.log(' ');
-console.log(getSchedule());
+console.log(getSchedule()); */
 
 module.exports = getSchedule;
