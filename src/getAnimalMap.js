@@ -2,12 +2,7 @@ const data = require('../data/zoo_data');
 const { species } = require('../data/zoo_data');
 
 const locationByRegion = () => {
-  const locality = {
-    NE: [],
-    NW: [],
-    SE: [],
-    SW: [],
-  };
+  const locality = { NE: [], NW: [], SE: [], SW: [] };
   species.map((specie) => locality[specie.location].push(specie.name));
   return locality;
 };

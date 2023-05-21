@@ -97,6 +97,6 @@ function calculateEntry(entrants = 0) {
   const sn = prices.senior * senior;
   return ch + ad + sn;
 }
-/* console.log(calculateEntry(entrantsParameter)); */
+/* console.log(calculateEntry({})); */
 
 module.exports = { calculateEntry, countEntrants };

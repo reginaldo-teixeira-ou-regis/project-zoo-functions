@@ -52,7 +52,7 @@ function countAnimals(animal) {
   }
 }
 /* console.log(countAnimals()); */
-/* console.log(countAnimals({ specie: 'penguins' })); */
+console.log(countAnimals({ specie: 'penguins' }));
 /* console.log(countAnimals({ specie: 'bears', sex: 'female' })); */
 
 module.exports = countAnimals;
